@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+	<%= stylesheet_link_tag "bootstrap", "bootstrap-responsive", "style","custom", "font-awesome" , "social", "http://fonts.googleapis.com/css?family=Josefin+Slab:400,700", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+	<style>
+	body { padding-top: 40px; }
+	</style>
+</head>
+<body>
+	<%= render 'layouts/nav'%>
+	<% if notice %>
+		<div class="alert">
+		  <button type="button" class="close" data-dismiss="alert">&times;</button>
+		  <%= notice %>
+		</div>
+		<%end%>
+		<% if alert %>
+			<div class="alert">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+			  <%= alert %>
+			</div>
+			<%end%>
+	<%= yield %>
+	
+	<%= render 'layouts/footer'%>
+</div>
+</body>
+</html>

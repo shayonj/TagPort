@@ -1,0 +1,31 @@
+<!-- Page Navbar -->
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="brand" href="/">TagPort</a>
+			<div class="navbar-content">
+				<ul class="nav  pull-right">
+					<li>
+						<%if user_signed_in?%>
+						<a> Hi, <%=current_user.name.split(' ').first %></a>
+						<%end%>
+					</li>
+					<li>
+						<%= link_to "Home", root_path%>
+					</li>
+					<li>
+						<%= link_to "Contact", home_contact_path%>
+					</li>
+					<li>
+						<%if user_signed_in?%>
+						<li><%= link_to "Sign out", destroy_user_session_path %></li>	
+						<%else%>
+						<%= link_to('Come aboard', new_user_session_path)  %>  
+						<%end%>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End of Page Navbar -->

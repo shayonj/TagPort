@@ -1,0 +1,62 @@
+<div id="main" role="main">
+	
+	<ul id="tiles">
+		<% if rand(1) == 0 %>
+		<!-- These are our grid blocks -->
+
+		<% @twitter_results.map do |s|%>	
+		<li>			
+			<div class="tweet">
+				<p class="white"><%= "#{s.from_user}: #{s.text}"%></p>
+			</div>
+			<p>Caption of an image or the link to a tweet goes here..</p>
+			<i class="icon-twitter"></i>
+			<div class="pull-right">Date: 02/11/2032</div>
+		</li>
+		<%end%>
+		
+		<% else %>
+
+		<%@instagram_results.map do |p| %> 
+		<li>
+			<%= image_tag p.images.standard_resolution.url, :size=>"400x250"%>
+			<br \>
+			<p>Caption of an image or the link to a tweet goes here..</p>
+			<i class="icon-camera-retro"></i>
+			<div class="pull-right">Date: 02/11/2032</div>
+		</li>
+		<%end%>
+
+		<!-- End of grid blocks -->
+		<% end %>
+	</ul>
+
+</div>
+
+<!-- Once the page is loaded, initalize the plug-in. -->
+<script type="text/javascript">
+$(document).ready(new function() {
+	// Prepare layout options.
+	var options = {
+		autoResize: true, // This will auto-update the layout when the browser window is resized.
+		container: $('#main'), // Optional, used for some extra CSS styling
+		offset: 5, // Optional, the distance between grid items
+		itemWidth: 260 // Optional, the width of a grid item
+	};
+
+	// Get a reference to your grid items.
+	var handler = $('#tiles li');
+
+	// Call the layout function.
+	handler.wookmark(options);
+
+	// Capture clicks on grid items.
+	handler.click(function(){
+		// Randomize the height of the clicked item.
+
+
+		// Update the layout.
+		handler.wookmark();
+	});
+});
+</script>

@@ -1,0 +1,60 @@
+/*All the custom css of my own goes here.*/
+.feed {
+	min-height: 20px;
+	padding: 5px;
+	margin-bottom: 20px;
+	background-color: #ffffff;
+	border: 1px solid #ededed;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.tweet {
+	padding: 5px;
+	margin-bottom: 20px;
+	background-color: #d9831f;
+	border: 1px solid #ededed;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	color:#fff;
+	font-size:20px;
+	line-height:30px;
+}
+.tweet2 {
+	padding: 5px;
+	margin-bottom: 20px;
+	background-color: #29AB87	;
+	border: 1px solid #ededed;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	color:#fff;
+	font-size:20px;
+	line-height:30px;
+}
+.full-slider{
+
+	background: url("/assets/whea.jpg");
+	background-size:100%;
+	background-repeat:no-repeat;
+	color: #fff;
+	text-align: center;
+	padding-top: 100px;
+	height:200px;
+	font-size: 30px;
+	line-height: 40px;
+}
+
+
+
+	
