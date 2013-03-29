@@ -1,6 +1,4 @@
-
-<!-- These are our grid blocks -->
-
+<!-- Instagram results starts to populate here -->
 <%@instagram_results.map do |p| %> 
 <li>
 	<%= image_tag p.images.standard_resolution.url, :size=>"400x250"%>
@@ -10,8 +8,7 @@
 	<div class="pull-right">Date: 02/11/2032</div>
 </li>
 <%end%>
-
-<!-- End of grid blocks -->
+<!-- End of Instagram results -->
 
 
 <!-- Once the page is loaded, initialize the plug-in. -->

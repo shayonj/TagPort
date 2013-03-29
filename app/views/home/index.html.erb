@@ -32,15 +32,13 @@ h3 {
 	<div class="row">
 		<div class="span12">
 			<div class="well">		
-
+				<!-- Passing the search query to /searches -->
 				<%= form_tag searches_path, :method => :get, :class=>"form-inline" do %>
 				<%=text_field_tag 'search', nil, :placeholder => 'Election2012 (one tag at a time)',:class=>"span10"%>
 				<%= button_tag(:type => 'submit', :class => 'btn btn-primary') do %>
 				<i class="icon-search icon-large" style="color:white"></i>
 					<% end %>
 					<% end %>
-					
-					
 
 				</div>
 			</div>

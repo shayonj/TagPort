@@ -1,4 +1,4 @@
-<!-- These are our grid blocks -->
+<!-- Twitter results starts to populate here -->
 <% @twitter_results.map do |s|%>	
 <li>			
 	<div class="<%= cycle("tweetOne","tweetTwo","tweetThree") %>">
@@ -16,7 +16,7 @@
 </li>
 <%end%>
 
-<!-- End of grid blocks -->
+<!-- End of twitter results -->
 
 <!-- Once the page is loaded, initialize the plug-in. -->
 <script type="text/javascript">

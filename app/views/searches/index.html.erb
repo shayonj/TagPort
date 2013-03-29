@@ -13,7 +13,7 @@
 	<div class="page-header">
 		<h2>Start your search</h2>
 	</div>
-
+	<!-- Search form goes here. Submitting via ajax.-->
 	<div class="row">
 		<div class="span12">
 			<div class="well">
@@ -35,25 +35,19 @@
 
 			</div>
 		</div>
-
 	</div>
 
-	
-	
+	<!-- Content for twitter and Instagram gets replaced here-->
 	<div id="main" role="main">
 		<ul id="tiles">
-			
 			<div class="twitter_results"></div>
 			<div class="instagram_results"></div>
-		
 		</ul>
 	</div>
 	
+	<!-- loading the spinner. Right now its on a timeout. More elegant solution can be implmented-->
 	<div class="span3 offset4 load"></div>
-
-
-
-<script>
+	<script>
 	$("div.load").hide();
 	$("#load").click(function(){
 		$("div.load").show();
@@ -61,21 +55,19 @@
 	setTimeout(function() {
 		$("div.load").hide();
 		}, 6500);
-</script>
-
-
-<% if params[:search].nil? == true%>
-	<%else%>
+		</script>
+		
+		<!-- Submitting form when querying from the home page-->
+		<% if params[:search].nil? == true%>
+		<%else%>
 		<script>
 		$(document).ready(function () {
-		  	$(extLoad).submit();
+			$(extLoad).submit();
 			$("div.load").show();
 			setTimeout(function() {
 				$("div.load").hide();
 				}, 6500);
-		});
-		</script>
-<%end%>
-
-
-	</div>
+			});
+			</script>
+			<%end%>
+</div>
