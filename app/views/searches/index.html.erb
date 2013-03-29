@@ -9,39 +9,63 @@
 }
 </style>
 
-
 <div class="container">
 	<div class="page-header">
 		<h2>Start your search</h2>
 	</div>
+
 	<div class="row">
 		<div class="span12">
 			<div class="well">
-			<%= form_tag searches_path, :method => "post", :class=>"form-inline",  :remote=> true  do %>
-			<div class="input-prepend">
-			  <span class="add-on">#</span>
-			<%=text_field_tag 'search', nil, :placeholder => 'Election2012 (one tag at a time)',:class=>"span10"%>
+				<%= form_tag searches_path, :method => "post", :class=>"form-inline", :name=>"extLoad",  :remote=> true  do %>
+				<div class="input-prepend">
+					<span class="add-on">#</span>
+
+					<% if params[:search].nil? == true%>
+					<%=text_field_tag 'search', nil, :placeholder => 'Election2012' ,:class=>"span10"%>
+					<%else%>
+					<%=text_field_tag 'search', nil, :value => params[:search],:class=>"span10"%>
+					<%end%>
+
+				</div>
+				<%= button_tag(:type => 'submit', :class => 'btn btn-primary' , :id => "load") do %>
+				<i class="icon-search icon-large" style="color:white"></i>
+				<% end %>
+				<% end %>
+
 			</div>
-			<%= button_tag(:type => 'submit', :class => 'btn btn-primary' , :id => "load") do %>
-			<i class="icon-search icon-large" style="color:white"></i>
-			<% end %>
-			<% end %>
-
 		</div>
-	</div>
-</div>
 
-<div class="results"></div>
-<div class="span3 offset4 load"></div>
+	</div>
+
+	<div class="results"></div>
+	<div class="span3 offset4 load"></div>
+
+
 
 <script>
-$("div.load").hide();
-$("#load").click(function(){
-	$("div.load").show();
-});
-setTimeout(function() {
 	$("div.load").hide();
-	}, 6500);
-	</script>
+	$("#load").click(function(){
+		$("div.load").show();
+	});
+	setTimeout(function() {
+		$("div.load").hide();
+		}, 6500);
+</script>
 
-</div>
+
+<% if params[:search].nil? == true%>
+	<%else%>
+		<script>
+		$(document).ready(function () {
+		  	$(extLoad).submit();
+			$("div.load").show();
+			setTimeout(function() {
+				$("div.load").hide();
+				}, 6500);
+		});
+		</script>
+<%end%>
+
+
+	</div>

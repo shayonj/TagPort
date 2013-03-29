@@ -1,22 +1,21 @@
 <div id="main" role="main">
 	
 	<ul id="tiles">
-		<% if rand(1) == 0 %>
 		<!-- These are our grid blocks -->
-
+		
 		<% @twitter_results.map do |s|%>	
 		<li>			
-			<div class="tweet">
-				<p class="white"><%= "#{s.from_user}: #{s.text}"%></p>
+			<div class="<%= cycle("tweetOne","tweetTwo","tweetThree") %>">
+					
+					<%= link_to "http://twitter.com/#{s.from_user}" do %>
+					  <%= image_tag(s.profile_image_url, :size=>"50x50", :class=>"img-circle", :style=>"float:left") %>
+					<% end %>
+					&nbsp;&nbsp;
+					<%="#{s.text}"%>
 			</div>
-			<p>Caption of an image or the link to a tweet goes here..</p>
-			<i class="icon-twitter"></i>
-			<div class="pull-right">Date: 02/11/2032</div>
+			<span style="float:right"></span>
 		</li>
 		<%end%>
-		
-		<% else %>
-
 		<%@instagram_results.map do |p| %> 
 		<li>
 			<%= image_tag p.images.standard_resolution.url, :size=>"400x250"%>
@@ -28,7 +27,6 @@
 		<%end%>
 
 		<!-- End of grid blocks -->
-		<% end %>
 	</ul>
 
 </div>

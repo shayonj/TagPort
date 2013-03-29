@@ -33,10 +33,10 @@ h3 {
 		<div class="span12">
 			<div class="well">		
 
-				<%= form_tag searches_path, :method => :post, :class=>"form-inline" do %>
+				<%= form_tag searches_path, :method => :get, :class=>"form-inline" do %>
 				<%=text_field_tag 'search', nil, :placeholder => 'Election2012 (one tag at a time)',:class=>"span10"%>
 				<%= button_tag(:type => 'submit', :class => 'btn btn-primary') do %>
-				<i class="icon-search icon-large" style="color:white">
+				<i class="icon-search icon-large" style="color:white"></i>
 					<% end %>
 					<% end %>
 					
