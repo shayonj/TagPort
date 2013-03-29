@@ -7,9 +7,12 @@
 		<li>			
 			<div class="<%= cycle("tweetOne","tweetTwo","tweetThree") %>">
 					
+					<span style="padding:10px"><b><u> <%=s.from_user%>:</u></b></span>
+					
 					<%= link_to "http://twitter.com/#{s.from_user}" do %>
 					  <%= image_tag(s.profile_image_url, :size=>"50x50", :class=>"img-circle", :style=>"float:left") %>
 					<% end %>
+					<br \>
 					&nbsp;&nbsp;
 					<%="#{s.text}"%>
 			</div>

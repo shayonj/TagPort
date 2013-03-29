@@ -58,22 +58,20 @@ module Tagport
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-    
-    
+    config.assets.initialize_on_precompile = false
+
+
     # Loads app config from /config/env_vars.yml
     unless Rails.env == 'production'
-       require 'yaml'
-       rails_root = Rails.root || File.dirname(__FILE__) + '/../..'
-       config = YAML.load_file(rails_root.to_s + '/config/env_vars.yml')
-       if config.key?(Rails.env) && config[Rails.env].is_a?(Hash)
-         config[Rails.env].each do |key, value|
-           ENV[key] = value.to_s
-         end
-       end
-       end
-    
-       config.assets.initialize_on_precompile = false
-    
-    
+      require 'yaml'
+      rails_root = Rails.root || File.dirname(__FILE__) + '/../..'
+      config = YAML.load_file(rails_root.to_s + '/config/env_vars.yml')
+      if config.key?(Rails.env) && config[Rails.env].is_a?(Hash)
+        config[Rails.env].each do |key, value|
+          ENV[key] = value.to_s
+        end
+      end
+    end
+
   end
 end
