@@ -1,8 +1,7 @@
 <!-- Twitter results starts to populate here -->
-<% @twitter_results.map do |s|%>	
+<% @twitter_results.results.map do |s|%>	
 <li>			
 	<div class="<%= cycle("tweetOne","tweetTwo","tweetThree") %>">
-
 		<span style="padding:10px"><b><u> <%=s.from_user%>:</u></b></span>
 
 		<%= link_to "http://twitter.com/#{s.from_user}" do %>
@@ -12,11 +11,15 @@
 		&nbsp;&nbsp;
 		<%="#{s.text}"%>
 	</div>
-	<span style="float:right"></span>
 </li>
 <%end%>
 
 <!-- End of twitter results -->
+
+
+
+
+
 
 <!-- Once the page is loaded, initialize the plug-in. -->
 <script type="text/javascript">
@@ -35,13 +38,52 @@ $(document).ready(new function() {
 	// Call the layout function.
 	handler.wookmark(options);
 
-	// Capture clicks on grid items.
-	handler.click(function(){
-		// Randomize the height of the clicked item.
+	// Update the layout.
+	handler.wookmark();
+	
 
+	
+	
+	 function loadMore()
+	{
+	   $("div.load").show();
+	    
+		{
+	        $.ajax({
+	        url: "<%searches_path%>",
+			method: "post",
+			data: {
+				// twitter_last_id: $("#tiles").data("twitter-las-id")
+				tag : "<%=params[:search]%>",
+				twitter_last_id :  "<%= @twitter_results.results.last.id %>"
+			},
+	        success: function(html)
+	        {
+	            if(html)
+	            {	               
+							$("div.load").hide();
+	            }else
+	            {
+	                // $('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
+	            }
+	        }
+	        });
+	    }
+	
+	
+	 }
 
-		// Update the layout.
-		handler.wookmark();
-	});
+	 function bindScroll(){
+	   if($(window).scrollTop() + $(window).height() > $(document).height() - 300) {
+	       $(window).unbind('scroll');
+	       loadMore();
+	   }
+	}
+
+	$(window).scroll(bindScroll);
+	
+	
+	
+	
 });
 </script>

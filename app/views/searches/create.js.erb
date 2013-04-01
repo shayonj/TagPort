@@ -1,2 +1,3 @@
-$("div.twitter_results").hide().fadeIn(3000).html("<%= escape_javascript (render :partial => 'twitter_results') %>");
-$("div.instagram_results").hide().fadeIn(3000).html("<%= escape_javascript (render :partial => 'instagram_results') %>");
+$("div.twitter_results").append("<%= escape_javascript (render :partial => 'twitter_results') %>");
+$("div.instagram_results").append("<%= escape_javascript (render :partial => 'instagram_results') %>");
+// $("div.no_content_to_display").hide().fadeIn(3000).html("<%=@no_content_to_display%>");

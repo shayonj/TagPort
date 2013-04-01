@@ -45,18 +45,25 @@
 		</ul>
 	</div>
 	
+
+
+
+
 	<!-- loading the spinner. Right now its on a timeout. More elegant solution can be implmented-->
 	<div class="span3 offset4 load"></div>
 	<script>
 	$("div.load").hide();
+
 	$("#load").click(function(){
 		$("div.load").show();
 	});
+
 	setTimeout(function() {
+
 		$("div.load").hide();
-		}, 6500);
+		}, 3000);
 		</script>
-		
+
 		<!-- Submitting form when querying from the home page-->
 		<% if params[:search].nil? == true%>
 		<%else%>
@@ -66,8 +73,9 @@
 			$("div.load").show();
 			setTimeout(function() {
 				$("div.load").hide();
+
 				}, 6500);
 			});
 			</script>
 			<%end%>
-</div>
+		</div>
