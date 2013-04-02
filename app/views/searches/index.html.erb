@@ -19,16 +19,15 @@
 			<div class="well">
 				<%= form_tag searches_path, :method => "post", :class=>"form-inline", :name=>"extLoad",  :remote=> true  do %>
 				<div class="input-prepend">
-					<span class="add-on">#</span>
-
+		
+					<span class="add-on">#</span>			
 					<% if params[:search].nil? == true%>
-					<%=text_field_tag 'search', nil, :placeholder => 'Election2012' ,:class=>"span10"%>
+						<%=text_field_tag 'search', nil, :placeholder => 'Election2012' ,:class=>"span10"%>
 					<%else%>
-					<%=text_field_tag 'search', nil, :value => params[:search],:class=>"span10"%>
-					<%end%>
-
+						<%=text_field_tag 'search', nil, :value => params[:search],:class=>"span10"%>
+					<%end%> 
 				</div>
-				<%= button_tag(:type => 'submit', :class => 'btn btn-primary' , :id => "load") do %>
+				<%= button_tag(:type => 'submit', :class => 'btn btn-primary' , :id => "submitLoad") do %>
 				<i class="icon-search icon-large" style="color:white"></i>
 				<% end %>
 				<% end %>
@@ -40,29 +39,27 @@
 	<!-- Content for twitter and Instagram gets replaced here-->
 	<div id="main" role="main">
 		<ul id="tiles">
-			<div class="twitter_results"></div>
-			<div class="instagram_results"></div>
+			<div class="results"></div>
 		</ul>
 	</div>
-	
-
-
 
 
 	<!-- loading the spinner. Right now its on a timeout. More elegant solution can be implmented-->
 	<div class="span3 offset4 load"></div>
+
+
 	<script>
 	$("div.load").hide();
 
-	$("#load").click(function(){
+	$("#submitLoad").click(function(){
+		$('div.results').empty();
 		$("div.load").show();
 	});
 
 	setTimeout(function() {
-
-		$("div.load").hide();
+			$("div.load").hide();
 		}, 3000);
-		</script>
+	</script>
 
 		<!-- Submitting form when querying from the home page-->
 		<% if params[:search].nil? == true%>
@@ -70,12 +67,14 @@
 		<script>
 		$(document).ready(function () {
 			$(extLoad).submit();
+
 			$("div.load").show();
+			
 			setTimeout(function() {
 				$("div.load").hide();
 
 				}, 6500);
 			});
-			</script>
-			<%end%>
+		</script>
+		<%end%>
 		</div>

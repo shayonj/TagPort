@@ -1,0 +1,42 @@
+<%if @twitter_results.results.empty? == true || @instagram_results.empty? == true%>
+
+<h2> Sorry the content you searched is either not present on twitter and/or instagram. We are working on making the search better. Please cooperate :) </h2>
+
+<%else%>
+<!-- Twitter results starts to populate here -->
+<% @twitter_results.results.map do |s|%>	
+<li>			
+	<div class="<%= cycle("tweetOne","tweetTwo","tweetThree") %>">
+		<span style="padding:10px"><b><u> <%=s.from_user%>:</u></b></span>
+
+		<%= link_to "http://twitter.com/#{s.from_user}" do %>
+		<%= image_tag(s.profile_image_url, :size=>"50x50", :class=>"img-circle", :style=>"float:left") %>
+		<% end %>
+		<br \>
+		&nbsp;&nbsp;
+		<%="#{s.text}"%>
+	</div>
+	<i class="icon-twitter"></i>
+</li>
+<%end%>
+
+<!-- End of twitter results -->
+
+<!-- Instagram results starts to populate here -->
+<%@instagram_results.map do |p| %> 
+<li>
+	<%= image_tag p.images.standard_resolution.url, :size=>"400x250"%>
+	<br \>
+	<%if p.caption == nil%>
+	<!--Do nothing-->
+	<%else%>
+	<p><%=p.caption.text%></p>
+	<i class="icon-camera-retro"></i>
+	<div class="pull-right">From: <u><%=p.caption.from.username%></u></div>
+	<%end%>
+</li>
+<%end%>
+
+<%= javascript_include_tag "results" %>
+
+<%end%>
