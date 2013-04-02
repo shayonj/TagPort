@@ -14,9 +14,9 @@ class SearchesController < ApplicationController
     twitter_search = TwitterSearch.new
     instagram_search = InstagramSearch.new
       
-    if params[:search].nil? == true
+    if params[:tag].nil? == false
       @twitter_results = twitter_search.first_query(:tag => params[:tag], :count =>20, :max_id => params[:twitter_last_id])
-      @instagram_results = instagram_search.query(:tag => params[:tag], :count => 20)
+      @instagram_results = instagram_search.query(:tag => params[:tag], :count => 20, :max_tag_id => params[:instagram_last_id])
     else
       @twitter_results = twitter_search.first_query(:tag => params[:search], :count =>20)
       @instagram_results = instagram_search.query(:tag => params[:search], :count => 20)

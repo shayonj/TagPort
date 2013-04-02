@@ -11,6 +11,7 @@
 		&nbsp;&nbsp;
 		<%="#{s.text}"%>
 	</div>
+	<i class="icon-twitter"></i>
 </li>
 <%end%>
 
@@ -55,7 +56,8 @@ $(document).ready(new function() {
 			data: {
 				// twitter_last_id: $("#tiles").data("twitter-las-id")
 				tag : "<%=params[:search]%>",
-				twitter_last_id :  "<%= @twitter_results.results.last.id %>"
+				twitter_last_id :  "<%= @twitter_results.results.last.id %>",
+				instagram_last_id :  "<%= @instagram_results.pagination.next_max_tag_id %>"
 			},
 	        success: function(html)
 	        {

@@ -3,9 +3,13 @@
 <li>
 	<%= image_tag p.images.standard_resolution.url, :size=>"400x250"%>
 	<br \>
-	<p>Caption of an image or the link to a tweet goes here..</p>
+	<%if p.caption == nil%>
+	<!--Do nothing-->
+	<%else%>
+	<p><%=p.caption.text%></p>
 	<i class="icon-camera-retro"></i>
-	<div class="pull-right">Date: 02/11/2032</div>
+	<div class="pull-right">From: <u><%=p.caption.from.username%></u></div>
+	<%end%>
 </li>
 <%end%>
 <!-- End of Instagram results -->

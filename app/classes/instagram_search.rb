@@ -1,5 +1,5 @@
 class InstagramSearch
-  attr_reader :search_instagram, :tag, :count
+  attr_reader :search_instagram, :tag, :count, :max_tag_id
   
   def initialize
     Instagram.configure do |config|
@@ -11,6 +11,7 @@ class InstagramSearch
   def query(args)
     @tag = args[:tag]
     @count = args[:count] || 10
-    Instagram.tag_recent_media(tag, {:count => count})
+    @max_tag_id = args[:max_tag_id] || 0
+    Instagram.tag_recent_media(tag, {:count => count}, :max_tag_id => max_tag_id)
   end
 end
