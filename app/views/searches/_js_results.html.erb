@@ -1,3 +1,4 @@
+<script>
 $(document).ready(new function() {
 	// Prepare layout options.
 	var options = {
@@ -21,7 +22,7 @@ $(document).ready(new function() {
 	   $("div.load").show();
 		{
 	        $.ajax({
-	        url: "<%searches_path%>",
+	        url: "<%=searches_path%>",
 			method: "post",
 			data: {
 				// twitter_last_id: $("#tiles").data("twitter-las-id")
@@ -52,3 +53,4 @@ $(document).ready(new function() {
 	}
 	$(window).scroll(bindScroll);	
 });
+</script>
