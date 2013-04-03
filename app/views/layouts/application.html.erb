@@ -1,31 +1,45 @@
 <!DOCTYPE html>
 <html>
-	<title><%= title %></title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<%= stylesheet_link_tag "bootstrap", "bootstrap-responsive", "style","custom", "font-awesome" , "social", "http://fonts.googleapis.com/css?family=Josefin+Slab:400,700", :media => "all" %>
-	<%= javascript_include_tag "application" %>
-	<%= csrf_meta_tags %>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>
-	body { padding-top: 40px; }
-	</style>
+<title><%= title %></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<%= stylesheet_link_tag "application", "http://fonts.googleapis.com/css?family=Josefin+Slab:400,700", :media => "all" %>
+<%= javascript_include_tag "application" %>
+<%= csrf_meta_tags %>
+
+<!-- Padding from top. Twitter bootstrap thingy.-->
+<style>
+body { padding-top: 40px; }
+</style>
+
+<!-- Calling off the fancybox. Mostly for the Instagram results.-->
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".fancybox").fancybox();
+});
+</script>
+
 </head>
 <body>
+	<!-- Rendering the navbat here.-->
 	<%= render 'layouts/nav'%>
-	<% if notice %>
-		<div class="alert">
-		  <button type="button" class="close" data-dismiss="alert">&times;</button>
-		  <%= notice %>
-		</div>
-		<%end%>
-		<% if alert %>
-			<div class="alert">
-			  <button type="button" class="close" data-dismiss="alert">&times;</button>
-			  <%= alert %>
-			</div>
-			<%end%>
-	<%= yield %>
 	
+	<!-- Checking to see if notice is true. If true then display the notice and/or alert.-->
+	<% if notice %>
+	<div class="alert">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		<%= notice %>
+	</div>
+	<%end%>
+	<% if alert %>
+	<div class="alert">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		<%= alert %>
+	</div>
+	<%end%>
+	
+	<!-- The yield goes here-->
+	<%= yield %>
+
 	<%= render 'layouts/footer'%>
 </div>
 </body>

@@ -1,14 +1,11 @@
 <style>
-.load {
-	background: transparent url(/assets/load.gif) left top no-repeat;
-	width:35px;
-	height:35px;
-}
 .input-prepend .add-on{
 	color:#d9230f;
 }
 </style>
-
+<!-- Setting up the title of the page based on the searched tag-->
+<%@title = "Search"%>
+<!--Container loads here-->
 <div class="container">
 	<div class="page-header">
 		<h2>Start your search</h2>
@@ -19,10 +16,11 @@
 			<div class="well">
 				<%= form_tag searches_path, :method => "post", :class=>"form-inline", :name=>"extLoad",  :remote=> true  do %>
 				<div class="input-prepend">
-		
-					<span class="add-on">#</span>			
+					<span class="add-on">#</span>		
+					<!-- If the search is being done from /search, form is left as it is-->	
 					<% if params[:search].nil? == true%>
 						<%=text_field_tag 'search', nil, :placeholder => 'Election2012' ,:class=>"span10"%>
+					<!-- If the search is being done from /home, form is set with the search value and is being submitted through the below js code.-->	
 					<%else%>
 						<%=text_field_tag 'search', nil, :value => params[:search],:class=>"span10"%>
 					<%end%> 
@@ -44,10 +42,11 @@
 	</div>
 
 
-	<!-- loading the spinner. Right now its on a timeout. More elegant solution can be implmented-->
+	<!-- Loading the spinner. Right now its on a timeout.-->
 	<div class="span3 offset4 load"></div>
 
 
+	<!-- Showing the spinner on a timeout-->
 	<script>
 	$("div.load").hide();
 
@@ -61,7 +60,7 @@
 		}, 3000);
 	</script>
 
-		<!-- Submitting form when querying from the home page-->
+		<!-- Submitting form when querying from the home page, along with the spinner firing off-->
 		<% if params[:search].nil? == true%>
 		<%else%>
 		<script>
@@ -73,7 +72,7 @@
 			setTimeout(function() {
 				$("div.load").hide();
 
-				}, 6500);
+				}, 3000);
 			});
 		</script>
 		<%end%>

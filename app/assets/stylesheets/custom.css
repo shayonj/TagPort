@@ -71,6 +71,12 @@
 	line-height: 40px;
 }
 
+.load {
+	background: transparent url(/assets/load.gif) left top no-repeat;
+	width:35px;
+	height:35px;
+}
+
 
 
 	
