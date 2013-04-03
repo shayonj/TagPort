@@ -3,6 +3,7 @@
 <h2> Sorry the content you searched is either not present on twitter and/or instagram. We are working on making the search better. Please cooperate :) </h2>
 
 <%else%>
+<tag> is <%= @tag %>
 <!-- Twitter results starts to populate here -->
 <% @twitter_results.results.map do |s|%>	
 <li>			

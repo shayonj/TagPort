@@ -18,15 +18,14 @@ $(document).ready(new function() {
 	handler.wookmark();
 		
 	 function loadMore()
-	{
+	{ 
 	   $("div.load").show();
 		{
 	        $.ajax({
 	        url: "<%=searches_path%>",
 			method: "post",
 			data: {
-				// twitter_last_id: $("#tiles").data("twitter-las-id")
-				tag : "<%=params[:search]%>",
+				tag : "<%=@tag%>",
 				twitter_last_id :  "<%= @twitter_results.results.last.id %>",
 				instagram_max_tag_id :  "<%= @instagram_results.pagination.next_max_tag_id %>"
 			},
