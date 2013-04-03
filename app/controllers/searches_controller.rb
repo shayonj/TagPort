@@ -22,12 +22,12 @@ class SearchesController < ApplicationController
     
     # Looking to see if tag returns nil. If so it looks for the search params. Helps for the first load, since tag has not been set then and rest of the calls are done via ajax.
     if params[:tag].nil? == false
-      @twitter_results = twitter_search.first_query(:tag => params[:tag], :count =>28, :max_id => params[:twitter_last_id])
-      @instagram_results = instagram_search.query(:tag => params[:tag], :count => 28, :max_tag_id => params[:instagram_max_tag_id])
+      @twitter_results = twitter_search.first_query(:tag => params[:tag], :count =>15, :max_id => params[:twitter_last_id])
+      @instagram_results = instagram_search.query(:tag => params[:tag], :count => 15, :max_tag_id => params[:instagram_max_tag_id])
     else
       # This where the first load goes. Since params[:search] is coming from the form itself.
-      @twitter_results = twitter_search.first_query(:tag => params[:search], :count =>28)
-      @instagram_results = instagram_search.query(:tag => params[:search], :count => 28)
+      @twitter_results = twitter_search.first_query(:tag => params[:search], :count =>15)
+      @instagram_results = instagram_search.query(:tag => params[:search], :count => 15)
     end
     
     # Making calls via ajax

@@ -25,6 +25,7 @@
 		<%="#{s.text}"%>
 	</div>
 	<i class="icon-twitter"></i>
+	<div class="pull-right">By: <u><%= link_to s.from_user,"http://twitter.com/#{s.from_user}", :target => '_blank' %></u></div>
 </li>
 <%end%>
 
@@ -44,7 +45,7 @@
 
 	<p class ="wrap"><%=p.caption.text%></p>
 	<i class="icon-camera-retro"></i>
-	<div class="pull-right">From: <u><%= link_to p.caption.from.username,"http://instagram.com/#{p.caption.from.username}", :target => '_blank' %></u></div>
+	<div class="pull-right">By: <u><%= link_to p.caption.from.username,"http://instagram.com/#{p.caption.from.username}", :target => '_blank' %></u></div>
 	<%end%>
 </li>
 <%end%>
