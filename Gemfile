@@ -29,6 +29,7 @@ gem 'twitter'
 gem 'typhoeus'
 gem 'faraday'
 gem 'omniauth-twitter'
+gem 'rails_autolink'
 
 group :production do
   gem 'pg'

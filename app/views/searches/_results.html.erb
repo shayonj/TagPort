@@ -3,8 +3,10 @@
 .wrap {
 	word-wrap: break-word;
 }
-</style>
+a.custom:link {color: #ffffff ; font-weight: bold; text-decoration:underline;}
+a.custom:visited {color: #ffffff ; font-weight: bold; text-decoration:underline;}
 
+</style>
 
 <%if @twitter_results.results.empty? == true || @instagram_results.empty? == true%>
 
@@ -22,7 +24,7 @@
 		<% end %>
 		<br \>
 		&nbsp;&nbsp;
-		<%="#{s.text}"%>
+		<%=auto_link("#{s.text}", :html => { :target => '_blank', :class => "custom" })%>
 	</div>
 	<i class="icon-twitter"></i>
 	<div class="pull-right">By: <u><%= link_to s.from_user,"http://twitter.com/#{s.from_user}", :target => '_blank' %></u></div>

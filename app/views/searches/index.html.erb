@@ -17,7 +17,7 @@
 				<%= form_tag searches_path, :method => "post", :class=>"form-inline", :name=>"extLoad",  :remote=> true  do %>
 				<div class="input-prepend">
 					<span class="add-on">#</span>		
-					<!-- If the search is being done from /search, form is left as it is-->	
+					<!-- If the search is being done from, /search, form is left as it is-->	
 					<% if params[:search].nil? == true%>
 						<%=text_field_tag 'search', nil, :placeholder => 'Search one tag at a time. For example - beaches' ,:class=>"span10"%>
 					<!-- If the search is being done from /home, form is set with the search value and is being submitted through the below js code.-->	
