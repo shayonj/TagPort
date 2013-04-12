@@ -29,7 +29,7 @@ a.custom:visited {color: #ffffff ; font-weight: bold; text-decoration:underline;
 		<% end %>
 		<br \>
 		&nbsp;&nbsp;
-		<%=cust_link(s.text)%>
+		<%=cust_link_twitter(s.text)%>
 	</div>
 	<i class="icon-twitter"></i>
 	<div class="pull-right">By: <u><%= link_to s.from_user,"http://twitter.com/#{s.from_user}", :target => '_blank' %></u></div>
@@ -50,7 +50,7 @@ a.custom:visited {color: #ffffff ; font-weight: bold; text-decoration:underline;
 	<%end%>
 	<br \>
 
-	<p class ="wrap"><%=p.caption.text%></p>
+	<p class ="wrap"><%=cust_link_instagram(p.caption.text)%></p>
 	<i class="icon-camera-retro"></i>
 	<div class="pull-right">By: <u><%= link_to p.caption.from.username,"http://instagram.com/#{p.caption.from.username}", :target => '_blank' %></u></div>
 	<%end%>
