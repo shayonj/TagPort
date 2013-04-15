@@ -13,49 +13,18 @@ a.custom:visited {color: #ffffff ; font-weight: bold; text-decoration:underline;
 }
 </style>
 
+
 <%if @twitter_results.results.empty? == true || @instagram_results.empty? == true%>
 
 <h2> Sorry the content you searched is either not present on twitter and/or instagram. We are working on making the search better. Please cooperate :) </h2>
 
 <%else%>
 <!-- Twitter results starts to populate here -->
-<% @twitter_results.results.map do |s|%>	
-<li>			
-	<div class="<%= cycle("tweetOne","tweetTwo","tweetThree") %>">
-		<span style="padding:10px"><b><u> <%=s.from_user%>:</u></b></span>
-
-		<%= link_to "http://twitter.com/#{s.from_user}",:target => '_blank' do %>
-		<%= image_tag(s.profile_image_url, :size=>"50x50", :class=>"img-circle", :style=>"float:left") %>
-		<% end %>
-		<br \>
-		&nbsp;&nbsp;
-		<%=cust_link_twitter(s.text)%>
-	</div>
-	<i class="icon-twitter"></i>
-	<div class="pull-right">By: <u><%= link_to s.from_user,"http://twitter.com/#{s.from_user}", :target => '_blank' %></u></div>
-</li>
-<%end%>
-
+<%=render :partial => 'twitter_view'%>
 <!-- End of twitter results -->
 
 <!-- Instagram results starts to populate here -->
-<%@instagram_results.map do |p| %> 
-<li>
-	<%if p.caption == nil%>
-	<!--Do nothing. Skip.-->
-	<%else%>
-	
-	<%= link_to "#{p.images.standard_resolution.url}",:class => "fancybox", :title => "#{p.caption.text}" do %>
-		<%= image_tag p.images.standard_resolution.url, :size=>"400x250"%>
-	<%end%>
-	<br \>
-
-	<p class ="wrap"><%=cust_link_instagram(p.caption.text)%></p>
-	<i class="icon-camera-retro"></i>
-	<div class="pull-right">By: <u><%= link_to p.caption.from.username,"http://instagram.com/#{p.caption.from.username}", :target => '_blank' %></u></div>
-	<%end%>
-</li>
-<%end%>
+<%=render :partial => 'instagram_view'%>
 <!-- Instagram results end here -->
 
 <%=render :partial => 'js_results'%>

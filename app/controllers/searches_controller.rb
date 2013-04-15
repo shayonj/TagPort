@@ -20,6 +20,8 @@ class SearchesController < ApplicationController
       @tag = params[:tag]
     end
     
+    @exclude = params[:exclude]
+    
     # Looking to see if tag returns nil. If so it looks for the search params. Helps for the first load, since tag has not been set then and rest of the calls are done via ajax.
     if params[:tag].nil? == false
       @twitter_results = twitter_search.first_query(:tag => params[:tag], :count =>15, :max_id => params[:twitter_last_id])

@@ -26,6 +26,7 @@ $(document).ready(new function() {
 			method: "post",
 			data: {
 				tag : "<%=@tag%>",
+				exclude : "<%=@exclude%>",
 				twitter_last_id :  "<%= @twitter_results.results.last.id %>",
 				instagram_max_tag_id :  "<%= @instagram_results.pagination.next_max_tag_id %>"
 			},
