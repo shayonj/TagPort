@@ -4,7 +4,7 @@ TagPort helps you monitor hashtags from Instagram and Twitter under one hood.
 
 **Features**
 
-* Simply search for a hashtag you wish to get results for
+* Simply search for a hashtag you wish to get results for from Twitter and Instagram
 * Exclude search results against a specific term (optional)
 * Auto link to urls
 * Auto link to Twitter and Instagram profile mentions

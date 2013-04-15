@@ -61,7 +61,6 @@ module Tagport
 
 
     # Loads app config from /config/env_vars.yml
-    unless Rails.env == 'production'
       require 'yaml'
       rails_root = Rails.root || File.dirname(__FILE__) + '/../..'
       config = YAML.load_file(rails_root.to_s + '/config/env_vars.yml')
@@ -70,7 +69,7 @@ module Tagport
           ENV[key] = value.to_s
         end
       end
-    end
+    
 
   end
 end

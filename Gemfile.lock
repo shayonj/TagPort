@@ -133,6 +133,8 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+    rvm-capistrano (1.3.0)
+      capistrano (>= 2.0.0)
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -174,6 +176,7 @@ DEPENDENCIES
   capistrano
   coffee-rails (~> 3.2.1)
   devise
+  execjs
   faraday
   instagram
   jquery-rails
@@ -181,6 +184,7 @@ DEPENDENCIES
   omniauth-twitter
   pg
   rails (= 3.2.12)
+  rvm-capistrano
   sass-rails (~> 3.2.3)
   sqlite3
   twitter
