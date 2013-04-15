@@ -21,4 +21,4 @@ TagPort helps you monitor hashtags from Instagram and Twitter under one hood.
 * [Andy Bas](http://andybas.com) - Mentor for Shayon Mukherjee
 
   [shayonj]: https://github.com/shayonj/
-  [http://tagport.herokuapp.com]: http://tagport.herokuapp.com
+  [http://tagport.wrkb.in]: http://tagport.wrkb.in
