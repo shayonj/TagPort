@@ -14,28 +14,29 @@
 	<div class="row">
 		<div class="span12">
 			<div class="well">
-				<%= form_tag searches_path, :method => "post", :class=>"form-inline", :name=>"extLoad",  :remote=> true  do %>
+				<%= form_tag searches_path, :method => "post", :class=>"form-inline", :name=>"extLoad",  :remote=> true  do %>	
 				<div class="input-prepend">
-					<span class="add-on">#</span>		
+				<span class="add-on">#</span>	
 					<!-- If the search is being done from, /search, form is left as it is-->	
 					<% if params[:search].nil? == true%>
 					<%=text_field_tag 'search', nil, :placeholder => 'Search for one keyword at a time (eg- holi, mumbai, newyork)' ,:class=>"span5"%>
 				</div>
-				<%=text_field_tag 'exclude', nil, :placeholder => 'Exclude results which have the term : (eg- #chicago, diwali, #HotShot)' ,:class=>"span5"%>
+					<%=text_field_tag 'exclude', nil, :placeholder => 'Exclude results with a specific term: (eg- #chicago, diwali, #HotShot)' ,:class=>"span5"%>
+				
 				<!-- If the search is being done from /home, form is set with the search value and is being submitted through the below js code.-->	
 				<%else%>
-				<div class="input-prepend">
-					<span class="add-on">#</span>
-					<%=text_field_tag 'search', nil, :value => params[:search],:class=>"span5"%>
-				</div>
-				<%=text_field_tag 'exclude', nil, :value => params[:exclude],:class=>"span5"%>
+					<%=text_field_tag 'search', nil, :value => params[:search],:class=>"span5",:placeholder => 'Search for one keyword at a time (eg- holi, mumbai, newyork)'%>
+					</div>
+					<%=text_field_tag 'exclude', nil, :value => params[:exclude],:class=>"span5",:placeholder => 'Exclude results with a specific term: (eg- #chicago, diwali, #HotShot)'%>
 				<%end%> 
 
 				<%= button_tag(:type => 'submit', :class => 'btn btn-primary' , :id => "submitLoad") do %>
 				<i class="icon-search icon-large" style="color:white"></i>
 				<% end %>
 				<% end %>
+				
 
+				
 			</div>
 		</div>
 	</div>
@@ -57,7 +58,6 @@
 		<div id="fountainTextG_5" class="fountainTextG">o</div>
 		<div id="fountainTextG_6" class="fountainTextG">r</div>
 		<div id="fountainTextG_7" class="fountainTextG">t</div>
-
 	</div>
 	<!-- TagPort loader ends here.-->		
 
@@ -93,4 +93,4 @@
 			});
 			</script>
 			<%end%>
-		</div>
+	</div>

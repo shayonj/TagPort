@@ -10,7 +10,9 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /config/env_vars.yml
-config/database.yml
+/config/database.yml
+/config/deploy.rb
+
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp

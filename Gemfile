@@ -7,6 +7,7 @@ gem 'rails', '3.2.12'
 
 group :development do
   gem 'sqlite3'
+  gem 'capistrano'
 end
 
 
@@ -29,23 +30,10 @@ gem 'twitter'
 gem 'typhoeus'
 gem 'faraday'
 gem 'omniauth-twitter'
+gem 'utf8_enforcer_workaround'
 
 group :production do
   gem 'pg'
+  gem 'mysql2'
+  gem 'activerecord-mysql-adapter'
 end
-
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
