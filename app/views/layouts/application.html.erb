@@ -2,18 +2,26 @@
 <html>
 <title><%= title %></title>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="Monitor hashtags from Instagram and Twitter under one hood now.">
-<meta name="keywords" content="twitter,instagram,hashtags,monitor">
-<meta name="author" content="Shayon Mukherjee">
-<meta name="google-site-verification" content="MCYFlxPaSDdl_zxdJQxx_yjpGfAX7CuTsMN1lJxLe7E" />
-<%= stylesheet_link_tag "application", "http://fonts.googleapis.com/css?family=Josefin+Slab:400,700", :media => "all" %>
-<%= javascript_include_tag "application" %>
-<%= csrf_meta_tags %>
-<!-- Padding from top. Twitter bootstrap thingy.-->
-<style>
-body { padding-top: 40px; }
-</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<%if current_page?(root_path) %>
+		<meta name="description" content="Monitor hashtags from Instagram and Twitter under one hood now.">
+	<%elsif current_page?(:controller => "home", :action => "contact")%>
+		<meta name="description" content="Contact me to know more or help on tagport">
+	<%elsif current_page?(:controller => "home", :action => "come_aboard")%>
+		<meta name="description" content="Join Tagport to to enjoy the premium features of the app.">
+	<%elsif current_page?(searches_path)%>
+		<meta name="description" content="Search for hashtags from twitter and instagram">
+	<%end%>
+	<meta name="keywords" content="twitter,instagram,hashtags,monitor">
+	<meta name="author" content="Shayon Mukherjee">
+	<meta name="google-site-verification" content="MCYFlxPaSDdl_zxdJQxx_yjpGfAX7CuTsMN1lJxLe7E" />
+	<%= stylesheet_link_tag "application", "http://fonts.googleapis.com/css?family=Josefin+Slab:400,700", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+	<!-- Padding from top. Twitter bootstrap thingy.-->
+	<style>
+	body { padding-top: 40px; }
+	</style>
 
 <!-- Calling off the fancybox. Mostly for the Instagram results.-->
 <script type="text/javascript">
@@ -26,7 +34,7 @@ $(document).ready(function() {
 <body>
 	<!-- Rendering the navbar here.-->
 	<%= render 'layouts/nav'%>
-	
+
 	<!-- Checking to see if notice is true. If true then display the notice and/or alert.-->
 	<% if notice %>
 	<div class="alert">
@@ -40,7 +48,7 @@ $(document).ready(function() {
 		<%= alert %>
 	</div>
 	<%end%>
-	
+
 	<!-- The yield goes here-->
 	<%= yield %>
 
