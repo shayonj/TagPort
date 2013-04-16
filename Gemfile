@@ -32,6 +32,7 @@ gem 'faraday'
 gem 'omniauth-twitter'
 gem 'utf8_enforcer_workaround'
 gem 'rvm-capistrano'
+gem 'newrelic_rpm'
 
 group :production do
   gem 'pg'

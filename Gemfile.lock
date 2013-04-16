@@ -95,6 +95,7 @@ GEM
     net-ssh (2.6.7)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
+    newrelic_rpm (3.6.0.83)
     oauth (0.4.7)
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
@@ -180,6 +181,7 @@ DEPENDENCIES
   instagram
   jquery-rails
   mysql2
+  newrelic_rpm
   omniauth-twitter
   pg
   rails (= 3.2.12)

@@ -12,6 +12,7 @@
 /config/env_vars.yml
 /config/database.yml
 /config/deploy.rb
+/config/newrelic.yml
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
