@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require jquery.wookmark
 //= require bootstrap.min 
+//= require jquery.validate
 //= require jquery.fancybox.pack 

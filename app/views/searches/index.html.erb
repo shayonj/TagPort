@@ -13,8 +13,9 @@
 	<!-- Search form goes here. Submitting via ajax.-->
 	<div class="row">
 		<div class="span12">
+ 			
 			<div class="well">
-				<%= form_tag searches_path, :method => "post", :class=>"form-inline", :name=>"extLoad",  :remote=> true  do %>	
+				<%= form_tag searches_path, :method => "post", :class=>"form-inline", :name=>"extLoad", :id=>"validateForm", :remote=> true  do %>	
 				<div class="input-prepend">
 				<span class="add-on">#</span>	
 					<!-- If the search is being done from, /search, form is left as it is-->	
@@ -61,21 +62,9 @@
 	</div>
 	<!-- TagPort loader ends here.-->		
 
+<!-- Custom js method go here.-->
+<%=	javascript_include_tag "search_index_path_custom"%>
 
-
-	<!-- Showing the spinner on a timeout-->
-	<script>
-	$("div.load").hide();
-
-	$("#submitLoad").click(function(){
-		$('div.results').empty();
-		$("div.load").show();
-	});
-
-	setTimeout(function() {
-		$("div.load").hide();
-		}, 3000);
-		</script>
 
 		<!-- Submitting form when querying from the home page, along with the spinner firing off-->
 		<% if params[:search].nil? == true%>

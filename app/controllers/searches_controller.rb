@@ -19,8 +19,9 @@ class SearchesController < ApplicationController
     else
       @tag = params[:tag]
     end
+    
     # Setting search tag to filter results accordingly.
-    @exclude = params[:exclude]
+    @excludes = params[:exclude]
     
     # Looking to see if tag returns nil. If so it looks for the search params. Helps for the first load, since tag has not been set then and rest of the calls are done via ajax.
     if params[:tag].nil? == false
