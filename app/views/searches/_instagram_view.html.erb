@@ -1,5 +1,4 @@
 <%@instagram_results.each do |p| %> 
-<%if params[:exclude].empty? == true%>
  <li>
 	<%if p.caption == nil%>
 	<!--Do nothing. Skip.-->
@@ -15,29 +14,4 @@
 	<div class="pull-right">By: <u><%= link_to p.caption.from.username,"http://instagram.com/#{p.caption.from.username}", :target => '_blank' %></u></div>
 	<%end%>
 </li>
-	
-<%else%>
-	<% if p.caption.text.include?(params[:exclude])%>
-		<!--Skip the content. not needed. -->
-	<%else%>
-		<li>
-			<%if p.caption == nil%>
-			<!--Do nothing. Skip.-->
-			<%else%>
-
-			<%= link_to "#{p.images.standard_resolution.url}",:class => "fancybox", :title => "#{p.caption.text}" do %>
-			<%= image_tag p.images.standard_resolution.url, :size=>"400x250"%>
-			<%end%>
-			<br \>
-
-			<p class ="wrap"><%=cust_link_instagram(p.caption.text)%></p>
-			<i class="icon-camera-retro"></i>
-			<div class="pull-right">By: <u><%= link_to p.caption.from.username,"http://instagram.com/#{p.caption.from.username}", :target => '_blank' %></u></div>
-			<%end%>
-		</li>
-<%end%>
-	<%end%>
-
-
-
 <%end%>

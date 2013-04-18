@@ -21,7 +21,7 @@ $.validator.addMethod(
 
      messages: {
          search: {
-             regex: "No spaces please.",
+             regex: "No spaces please. You see, that defeats the purpose of having a hashtag :). ",
          },
      }, 
 
