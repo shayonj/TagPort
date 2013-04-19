@@ -11,10 +11,16 @@
 				<br \>
 				&nbsp;&nbsp;
 				<%=cust_link_twitter(s.text)%>
-
 			</div>
-			<i class="icon-twitter"></i>
-			<div class="pull-right">By: <u><%= link_to s.from_user,"http://twitter.com/#{s.from_user}", :target => "_blank" %></u></div>
+				<div class="row-fluid">
+				  <div class="span5">
+					<%="#{time_ago_in_words(s.created_at).capitalize} ago"%>
+				  </div>
+				  <div class="span5">
+				  	<div class="pull-right">By: <u><%= link_to s.from_user,"http://twitter.com/#{s.from_user}", :target => "_blank" %></u></div>
+				  </div>
+			</div>
+				
 		</li>
 <%end%>
 

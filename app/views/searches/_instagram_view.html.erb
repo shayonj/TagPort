@@ -1,5 +1,5 @@
 <%@instagram_results.each do |p| %> 
- <li>
+<li>
 	<%if p.caption == nil%>
 	<!--Do nothing. Skip.-->
 	<%else%>
@@ -10,8 +10,19 @@
 	<br \>
 
 	<p class ="wrap"><%=cust_link_instagram(p.caption.text)%></p>
-	<i class="icon-camera-retro"></i>
-	<div class="pull-right">By: <u><%= link_to p.caption.from.username,"http://instagram.com/#{p.caption.from.username}", :target => '_blank' %></u></div>
+
+	<br \>
+	<div class="row-fluid">
+		<div class="span5">
+			<%="#{time_ago_in_words(Time.at(p.caption.created_time.to_i)).capitalize} ago"%>
+		</div>
+
+		<div class="span5">
+			<div class="pull-right">By: <u><%= link_to p.caption.from.username,"http://instagram.com/#{p.caption.from.username}", :target => '_blank' %></u></div>
+		</div>
+	</div>
+
 	<%end%>
 </li>
 <%end%>
+

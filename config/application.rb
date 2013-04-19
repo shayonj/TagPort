@@ -58,8 +58,9 @@ module Tagport
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
 
-
+    
     # Loads app config from /config/env_vars.yml
       require 'yaml'
       rails_root = Rails.root || File.dirname(__FILE__) + '/../..'
