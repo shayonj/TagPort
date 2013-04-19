@@ -1,8 +1,8 @@
 //  Twitter results starts to populate here and checks if end of the result/pagination has been reached
 <% if @twitter_results.last.id == @twitter_results.first.id%>
-	// Show a message alerting user about the end has come
+	alert("End of Twitter results. Only instagram results (if any) will be show.");
 <% elsif @instagram_results.pagination.next_max_tag_id.nil? %>
-	// Show a message alerting user about the end has come
+	alert("End of Instagram results");
 <%else%>
 $("div.twitter_results").append("<%= escape_javascript (render :partial => 'twitter_view') %>");
 $("div.instagram_results").append("<%= escape_javascript (render :partial => 'instagram_view') %>");
