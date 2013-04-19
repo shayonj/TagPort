@@ -84,3 +84,30 @@
 			</script>
 			<%end%>
 	</div>
+	
+	<!-- Button to trigger modal -->
+
+	<!-- Modal -->
+	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="myModalLabel">The end has come</h3>
+	  </div>
+	  <div class="modal-body">
+	    <p>End of twitter results. If there are any Instagram results it will be shown ;).</p>
+	  </div>
+	  <div class="modal-footer">
+	    <button id="modalButton" class="btn" data-dismiss="modal" aria-hidden="true" >Alright Alright !</button>
+	  </div>
+	</div>
+	
+	<script>
+
+        $("#modalButton").click( function()
+           {
+			 $("#myModal").hide();
+             $("div.load").hide();
+           }
+        );
+    </script>
+ 

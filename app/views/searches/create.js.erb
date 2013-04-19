@@ -1,8 +1,9 @@
 //  Twitter results starts to populate here and checks if end of the result/pagination has been reached
 <% if @twitter_results.last.id == @twitter_results.first.id%>
-	alert("End of Twitter results. Only instagram results (if any) will be show.");
+	$("#myModal").modal("toggle");
+
 <% elsif @instagram_results.pagination.next_max_tag_id.nil? %>
-	alert("End of Instagram results");
+	
 <%else%>
 $("div.twitter_results").append("<%= escape_javascript (render :partial => 'twitter_view') %>");
 $("div.instagram_results").append("<%= escape_javascript (render :partial => 'instagram_view') %>");
@@ -53,10 +54,10 @@ $(document).ready(new function() {
 					if(html)
 					{	    
 
-						$("div.load").hide();
+						
 						}else
 						{
-							// $('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
+							$("div.load").hide();
 						}
 					}
 				});
@@ -64,7 +65,7 @@ $(document).ready(new function() {
 		}
 
 		function bindScroll(){
-			if($(window).scrollTop() + $(window).height() > $(document).height() - 500) {
+			if($(window).scrollTop() + $(window).height() > $(document).height() - 150) {
 				$(window).unbind('scroll');
 				loadMore();
 			}
