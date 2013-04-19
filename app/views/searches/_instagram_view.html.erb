@@ -1,3 +1,17 @@
+<!-- Wrapping up the text in p tags. Sometimes it messes up the layout-->
+<style>
+.wrap {
+	word-wrap: break-word;
+}
+a.custom:link {color: #ffffff ; font-weight: bold; text-decoration:underline;}
+a.custom:visited {color: #ffffff ; font-weight: bold; text-decoration:underline;}
+
+.custom {
+	color: #fff;
+	font-weight: bold; 
+	text-decoration:underline;
+}
+</style>
 <%@instagram_results.each do |p| %> 
 <li>
 	<%if p.caption == nil%>

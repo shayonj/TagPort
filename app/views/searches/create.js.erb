@@ -1,2 +1,73 @@
+//  Twitter results starts to populate here and checks if end of the result/pagination has been reached
+<% if @twitter_results.last.id == @twitter_results.first.id%>
+	// Show a message alerting user about the end has come
+<% elsif @instagram_results.pagination.next_max_tag_id.nil? %>
+	// Show a message alerting user about the end has come
+<%else%>
+$("div.twitter_results").append("<%= escape_javascript (render :partial => 'twitter_view') %>");
+$("div.instagram_results").append("<%= escape_javascript (render :partial => 'instagram_view') %>");
+<%end%>
 
-$("div.results").append("<%= escape_javascript (render :partial => 'results') %>");
+/*
+* Running the ajax call here. Things that happen here are
+*
+* Layout for the view gets created using wookmark
+* Auto scroll instead of pagination
+*
+*/
+
+$(document).ready(new function() {
+	// Prepare layout options.
+	var options = {
+		autoResize: true, // This will auto-update the layout when the browser window is resized.
+		container: $('#main'), // Optional, used for some extra CSS styling
+		offset: 5, // Optional, the distance between grid items
+		itemWidth: 260 // Optional, the width of a grid item
+	};
+
+	// Get a reference to your grid items.
+	var handler = $('#tiles li');
+
+	// Call the layout function.
+	handler.wookmark(options);
+
+	// Update the layout.
+	handler.wookmark();
+
+
+	function loadMore()
+	{ 
+		$("div.load").show();
+		{
+			$.ajax({
+				url: "<%=searches_path%>",
+				method: "post",
+				data: {
+					tag : "<%=@tag%>",
+					exclude	 : "<%=@exclude%>",
+					twitter_last_id :  "<%= @twitter_results.last.id %>",
+					instagram_max_tag_id :  "<%= @instagram_results.pagination.next_max_tag_id %>"
+				},
+				success: function(html)
+				{
+					if(html)
+					{	    
+
+						$("div.load").hide();
+						}else
+						{
+							// $('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
+						}
+					}
+				});
+			}
+		}
+
+		function bindScroll(){
+			if($(window).scrollTop() + $(window).height() > $(document).height() - 500) {
+				$(window).unbind('scroll');
+				loadMore();
+			}
+		}
+		$(window).scroll(bindScroll);	
+	});
