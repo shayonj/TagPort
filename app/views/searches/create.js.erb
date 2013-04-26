@@ -5,8 +5,7 @@
 <% elsif @instagram_results.pagination.next_max_tag_id.nil? %>
 	
 <%else%>
-$("div.twitter_results").append("<%= escape_javascript (render :partial => 'twitter_view') %>");
-$("div.instagram_results").append("<%= escape_javascript (render :partial => 'instagram_view') %>");
+$("div.results").append("<%= escape_javascript (render :partial => 'results') %>");
 <%end%>
 
 /*

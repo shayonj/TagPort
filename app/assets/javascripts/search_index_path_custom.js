@@ -51,8 +51,7 @@ $.validator.addMethod(
 $("div.load").hide();
 
 $("#submitLoad").click(function(){
-	$('div.twitter_results').empty();
-	$('div.instagram_results').empty();
+	$('div.results').empty();
 	$("div.load").show();
 });
 

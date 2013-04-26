@@ -38,3 +38,33 @@ a.custom:visited {color: #ffffff ; font-weight: bold; text-decoration:underline;
 				
 		</li>
 <%end%>
+
+
+<%@instagram_results.each do |p| %> 
+<li>
+	<%if p.caption == nil%>
+	<!--Do nothing. Skip.-->
+	<%else%>
+
+	<%= link_to "#{p.images.standard_resolution.url}",:class => "fancybox", :title => "#{p.caption.text}" do %>
+	<%= image_tag p.images.standard_resolution.url, :size=>"400x250"%>
+	<%end%>
+	<br \>
+
+	<p class ="wrap"><%=cust_link_instagram(p.caption.text)%></p>
+
+	<br \>
+	<div class="row-fluid">
+		<div class="span5">
+			<%="#{time_ago_in_words(Time.at(p.caption.created_time.to_i)).capitalize} ago"%>
+		</div>
+
+		<div class="span5">
+			<div class="pull-right">By: <u><%= link_to p.caption.from.username,"http://instagram.com/#{p.caption.from.username}", :target => '_blank' %></u></div>
+		</div>
+	</div>
+
+	<%end%>
+</li>
+<%end%>
+
