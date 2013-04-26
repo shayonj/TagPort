@@ -20,7 +20,7 @@ class TwitterSearch
     @max_id = args[:max_id] || 0
     
     # Search being made here with values beince replaced accordingly.
-    client.search("#".concat(tag), :count => count, :lang => lang, :result_type => result_type, :max_id => max_id)
+    client.search(tag, :count => count, :lang => lang, :result_type => result_type, :max_id => max_id)
   end
   
 

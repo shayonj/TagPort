@@ -11,7 +11,9 @@ class SearchesController < ApplicationController
   def create
     # Initializing classes
     twitter_search = TwitterSearch.new
-    instagram_search = InstagramSearch.new
+    instagram_search = InstagramSearch.new    
+
+      
 
     # Making sure @tag is never return empty
     if params[:tag].nil? == true
